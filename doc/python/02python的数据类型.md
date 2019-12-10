@@ -32,6 +32,10 @@ print('my name is "cong"')
 print(2 > 3)  # False
 print(5 > 3)  # True
 print( 2>3 and 5>3) # False
+
+print(True)  #True
+print(True+1)  # 2 True是1
+print(False+1)  # 1 False是0
 ```
 
 ## 空值
@@ -88,4 +92,18 @@ print(b*2)
 print(c)
 ```
 
+##  类型检查
+
+* type 函数
+```
+a = 123
+b = '123'
+c = True
+print(a)
+print(b)
+
+print(type(a))
+print(type(b))
+print(type(c))
+```
 
