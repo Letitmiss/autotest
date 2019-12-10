@@ -27,8 +27,19 @@ PyCharm 最好用的IDE  官网下载  破解百度解决
 * 编写第一个程序   
 `print("hello world") `  右键运行,控制台输出hello world, 第一个python程序完成
 
-
+* print内置函数的更多用法
+```
+print('hello world')
+#  多个字符串,默认空格拼接
+print('start study python','hello world')
+# 输入,然后等待输出
+print('please input a world:')
+name= input();
+print(name)
+```
 ## pycharm使用
  使用教程  https://www.jianshu.com/p/2bfc19e1381c
 ## 基础入门
   https://docs.python.org/zh-cn/3.8/ python 中文文档
+  
+
