@@ -37,6 +37,20 @@ p3=['23',45, "abc","ABC"]
 list1[3]=p3
 print(list1)
 
+# 二维list
+L = [
+    ['Apple', 'Google', 'Microsoft'],
+    ['Java', 'Python', 'Ruby', 'PHP'],
+    ['Adam', 'Bart', 'Lisa']
+]
+print(L)
+# apple
+print(L[0][0])
+# 打印Python:
+print(L[1][1])
+# Lisa
+print(L[2][2])
+
 ```
 
 ## 列表生成器
@@ -85,4 +99,41 @@ L8 = ['Hello', 'World', 18, 'Apple', None]
 print([s.lower() for s in L8 if isinstance(s,str)])
 ```
 
+# tuple
 
+tuple和list非常类似，但是tuple一旦初始化就不能修改
+```
+t = ('Adam','Bar','Chars')
+# 获取
+print(t[2])
+
+#元素只读无法修改,这样会报错
+#t[2] = 2
+
+#创建空tuple
+t2 = ()
+
+#创建单个字符串tuple , 单个元素加入 ,
+t3=('name',)
+print(t3)
+
+# 创建数字tuple, 注意要加逗号, 否则 t4=(4) , 这样() 会被认为是数学的小括号
+t4=(4,)
+print(t4)
+
+# 定义可变的list元素到tuple , 实际上tuple元素的指向都不变, 当被指向的目标发生变化时,输出也会变化
+t5 = ('a','b',['A','B'])
+print(t5)  #  ('a', 'b', ['A', 'B'])
+
+t5[2][0] = 'X'
+t5[2][1] = 'Y'
+
+print(t5) #  ('a', 'b', ['X', 'Y'])
+
+# 判断是否属于tuple中的元素
+t = ('Adam','Bar','Chars')
+if 'Adam' in t:
+    print('OK')
+else:
+    print('No')
+```
