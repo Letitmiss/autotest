@@ -22,6 +22,10 @@ PyCharm 最好用的IDE  官网下载  破解百度解决
 ## 第一个python程序
 
 * Pycharm创建项目
+* 设置项目编码UTF-8
+  打开设置+ file enconding 全部设置为utf-8
+* 编写第一个程序
 
+` print("hello world") `  右键运行,控制台输出hello world, 第一个python程序完成
 
 
