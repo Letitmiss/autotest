@@ -73,6 +73,19 @@ print('Hello %s' %'world')
 age=18
 address='china'
 print('Hello %s, age is  %d , address %s !' %(name,age,address))
+
+name = 'abc'
+
+print(f'hello {name}')
+
+a=123.456
+print('num is %.2f' %a)
+
+#字符串乘以数字
+b = 'qwer'
+c = b*20
+print(b*2)
+print(c)
 ```
 
 
