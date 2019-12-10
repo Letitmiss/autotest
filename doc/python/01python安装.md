@@ -28,3 +28,8 @@ PyCharm 最好用的IDE  官网下载  破解百度解决
 `print("hello world") `  右键运行,控制台输出hello world, 第一个python程序完成
 
 
+## pycharm使用
+ 使用教程  https://www.jianshu.com/p/2bfc19e1381c
+# 基础入门
+  https://www.liaoxuefeng.com/wiki/1016959663602400/1017104324028448
+  https://docs.python.org/zh-cn/3.8/ python 中文文档
