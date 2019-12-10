@@ -5,8 +5,12 @@
 这里我安装的是3.8 版本,mac版本
 https://www.python.org/downloads/release/python-380/
 * 安装
-
+  点击下一步,傻瓜安装就行
 * 测试
+```
+gaocongdeMacBook-Air:~ gaocong$ python --version
+Python 2.7.10
+```
 
 也可以使用brew 命令安装python  `brew install python3`  ,如果没有安装brew ,百度安装一下就好
 
