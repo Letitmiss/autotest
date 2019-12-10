@@ -13,13 +13,15 @@ https://www.python.org/downloads/release/python-380/
 
 ## 解释器
 
-python解释器有好几种, 通常使用Cpython,还有Jpython
+python解释器有好几种, 通常使用Cpython,还有Jpython等, 需要多了解可以百度,
 
 ## python编辑器
 
 PyCharm 最好用的IDE  官网下载  破解百度解决
 
-## 
+## 第一个python程序
+
+* Pycharm创建项目
 
 
 
