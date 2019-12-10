@@ -64,6 +64,15 @@ print(b)  # 输出ABC, 变量之间赋值传递的引用变量
 %f	   浮点数   
 %s	  字符串   
 %x	   十六进制整数    
+```
+name='mama'
+print('Hello %s' %name)
 
+print('Hello %s' %'world')
+
+age=18
+address='china'
+print('Hello %s, age is  %d , address %s !' %(name,age,address))
+```
 
 
