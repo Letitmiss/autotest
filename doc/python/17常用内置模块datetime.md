@@ -16,6 +16,8 @@ print(datetime(2015, 4, 19, 12, 20).timestamp())
 
 print(datetime(2015, 4, 19, 12, 20).isoformat())
 print(datetime.now(timezone.utc).isoformat())
+
+print(datetime.now().timetuple())
 ```
 * str与datetime互相转换
 ```
