@@ -160,3 +160,70 @@ print(myDict.get_item_FIFO())  # ('a', 1)
 
 ```
 
+## ChainMap
+
+* ChainMap可以把一组dict串起来并组成一个逻辑上的dict,ChainMap本身也是一个dict，但是查找的时候，会按照顺序在内部的dict依次查找, 但是更新的的时候,只更新第一个链
+* 文档https://docs.python.org/zh-cn/3.8/library/collections.html#collections.ChainMap
+* 应用场景 : 应用程序往往都需要传入参数，参数可以通过命令行传入，可以通过环境变量传入，还可以有默认参数。我们可以用ChainMap实现参数的优先级查找，即先查命令行参数，如果没有传入，再查环境变量，如果没有，就使用默认参数。
+
+```
+from collections import ChainMap
+import os,argparse
+
+# 构造缺省参数:
+defaults = {
+    'color': 'red',
+    'user': 'guest'
+}
+
+# 构造命令行参数:
+parser = argparse.ArgumentParser()
+parser.add_argument('-u', '--user')
+parser.add_argument('-c', '--color')
+namespace = parser.parse_args()
+command_line_args = { k: v for k, v in vars(namespace).items() if v }
+
+# 组合成ChainMap:
+combined = ChainMap(command_line_args, os.environ, defaults)
+# 没有参数,打印默认值
+print('color=%s' % combined['color'])
+print('user=%s' % combined['user'])
+
+# python hello.py -u tom
+#color=red
+#user=tom
+
+```
+
+## counter对象
+
+* 计数器对象, dict的子类,计算元素出现的次数,分组统计的概念
+```
+from collections import Counter
+# collections.Counter([iterable-or-mapping])
+# 创建空
+c = Counter()
+# 字符串分组计数
+c = Counter('gallahad')
+print(c)  #  Counter({'a': 3, 'l': 2, 'g': 1, 'h': 1, 'd': 1})
+c = Counter({'red': 4, 'blue': 2})
+print(c)
+c = Counter(cats=4, dogs=8)
+print(c)
+
+
+c = Counter(['red', 'blue', 'red', 'green', 'blue', 'blue'])
+print(c)  #  Counter({'blue': 3, 'red': 2, 'green': 1})
+
+# elements() # 按照首次出现的顺序排列
+print(list(c.elements()))  # ['red', 'red', 'blue', 'blue', 'blue', 'green']
+
+#设置一个计数为0不会从计数器中移去一个元素。使用 del 来删除它:
+c['red']=0  
+print(c)   # Counter({'blue': 3, 'green': 1, 'red': 0})
+del c['red']
+print(c)   # Counter({'blue': 3, 'green': 1})
+
+```
+
+
