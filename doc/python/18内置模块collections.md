@@ -76,7 +76,9 @@ print(d)  # deque(['mm', 'e', 'w', 'q', 'a', 'b', 'c', 'x', 'y', 'z', 'nn'])
 ```
 
 ## defaultdict 
-* key不存在时返回默认值
+* `class collections.defaultdict([default_factory[, ...]])` 第一个参数 default_factory 提供了一个初始值,它默认为 None ,所有的其他参数都等同与 dict 构建器中的参数对待，包括关键词参数。
+* 属性 `__missing__(key)` , 如果查询key失败,dict的 `__getitem__()被调用, getitem方法会调用__missing__(key)`,如果 default_factory 是 None ，它就返回一个 KeyError 并将 key 作为参数。如果 default_factory 不为 None ， 它就会会被调用，不带参数，为 key 提供一个默认值， 这个值和 key 作为一个对被插入到字典中，并返回。
+
 ```
 from collections import namedtuple,deque,defaultdict
 
@@ -84,7 +86,31 @@ d = defaultdict(lambda: 0)
 d['key']='abc'
 print(d['key'])
 # key不存在,默认值
-print(d['ad'])  # 0
+print(d['ad'])
+print(d)
+
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+
+# list 作为 default_factory
+d = defaultdict(list)
+for k,v in s:
+    d[k].append(v)
+
+print(d)   # defaultdict(<class 'list'>, {'yellow': [1, 3], 'blue': [2, 4], 'red': [1]})
+print(sorted(d.items())) # [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+# 每个键第一次遇见时，它还没有在字典里面；所以条目自动创建，通过 default_factory 方法，并返回一个空的 list ,
+# list.append() 操作添加值到这个新的列表里, 当下次调用的时候,正常取用操作
+
+# 验证 key不存在事 返回一个空list
+print(d['gray'])
+
+# 设置int为 default_factory, 可以用来计数
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+print(sorted(d.items()))  # [('i', 4), ('m', 1), ('p', 2), ('s', 4)]
+
 ```
 
 ##  OrderedDict
