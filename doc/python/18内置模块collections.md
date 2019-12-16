@@ -115,3 +115,48 @@ print(sorted(d.items()))  # [('i', 4), ('m', 1), ('p', 2), ('s', 4)]
 
 ##  OrderedDict
 
+* OrderedDict 旨在擅长重新排序操作,空间效率、迭代速度和更新操作的性能是次要的, OrderedDict 可以比 dict 更好地处理频繁的重新排序操作
+* OrderedDict 排序测试不是按照key排序的,而是按照插入顺序排序的
+* OrderedDict 类的 popitem(last=True), true为LIFO 后进先出 , false FIFO 先进先出
+* OrderedDict 类有一个 move_to_end() 方法， `move_to_end(key, last=True) ` 可以有效地将元素移动到任一端,true末端, false 顶端
+* Python 3.8之后， 有了 `__reversed__()` 方法。
+
+```
+from collections import OrderedDict
+
+d = dict([('a', 1), ('b', 2), ('c', 3),('d', 4), ('e', 5), ('f', 6)])
+print(d)
+
+ordered_dict = OrderedDict(d)
+
+ordered_dict['x'] = 11
+ordered_dict['y'] = 22
+print(ordered_dict) # 默认往后添加
+
+# 更新一个dict,如有有key存在,就更新,并且则插入位置移动至末尾,key不存在就直接插入
+class LastUpdateOrderDict(OrderedDict):
+
+    def __setitem__(self,key,value):
+        super().__setitem__(key,value)
+        self.move_to_end(key)
+    def get_item_LIFO(self):
+        return self.popitem(True)
+    def get_item_FIFO(self):
+        return self.popitem(False)
+myDict = LastUpdateOrderDict([('a', 1), ('b', 2), ('c', 3)])
+myDict['x']=5
+print(myDict)
+# LastUpdateOrderDict([('a', 1), ('b', 2), ('c', 3), ('x', 5)])
+myDict['b'] = 10
+print(myDict)
+#  LastUpdateOrderDict([('a', 1), ('c', 3), ('x', 5), ('b', 10)])
+
+# LIFO
+print(myDict.get_item_LIFO()) # ('b', 10)
+print(myDict.get_item_LIFO()) # ('x',5)
+
+# FIFO
+print(myDict.get_item_FIFO())  # ('a', 1)
+
+```
+
