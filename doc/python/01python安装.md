@@ -45,5 +45,7 @@ print(name)
  使用教程  https://www.jianshu.com/p/2bfc19e1381c
 ## 基础入门
   https://docs.python.org/zh-cn/3.8/ python 中文文档
+  https://learnku.com/python python中文社区
+  
   
 
