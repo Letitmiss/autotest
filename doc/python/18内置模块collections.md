@@ -110,7 +110,7 @@ d = defaultdict(int)
 for k in s:
     d[k] += 1
 print(sorted(d.items()))  # [('i', 4), ('m', 1), ('p', 2), ('s', 4)]
-
+# 如果key值没有,就会int() 返回0, 还可以使用lambda表达式,这样可以morning返回值; 
 ```
 
 ##  OrderedDict
