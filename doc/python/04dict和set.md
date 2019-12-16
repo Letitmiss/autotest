@@ -61,3 +61,27 @@ a == b == c == d == e
 ## dict数据结构更多方法
 
 * 官方文档 : https://docs.python.org/zh-cn/3.8/library/stdtypes.html?highlight=dict#mapping-types-dict
+
+
+# set 
+* set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。没有重复的key
+
+```
+list1=[1,2,3]
+s=set(list1)
+
+print(s)
+
+list2= [1,2,2,3,3,4]
+s2=set(list2)
+print(s2)
+
+s2.add(5)
+s2.add(1)
+
+s2.remove(1)
+print(s2)
+
+# set的原理和dict一样，所以，同样不可以放入可变对象,set的原理和dict一样，所以，同样不可以放入可变对象
+#s2.add(list1)  报错不支持可变对象存入
+```
