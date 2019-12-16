@@ -31,6 +31,7 @@ with Query('Bob') as q:
 # query info about Bob .. 
 # End
 ```
+
 * @contextmanager 编写__enter__和__exit__仍然很繁琐，因此Python的标准库contextlib提供了更简单的写法
 这个decorator接受一个generator，用yield语句把with ... as var把变量输出出去，然后，with语句就可以正常地工作了
 
@@ -55,6 +56,7 @@ def create_query(name):
 with create_query('Tom') as qq:
     qq.query()
 ```
+被装饰的函数在被调用时，必须返回一个 generator-iterator。这个迭代器必须只 yield 一个值出来，这个值会被用在 with 语句中，绑定到 as 后面的变量
 *  某段代码之前后打印日志, 执行顺序yield之前, whith语句内部代码块,yield之后代码块
 ```
 @contextmanager
@@ -68,4 +70,8 @@ with tag("123"):
     print('hello')
     print('python')
 ```
+
+## @closing
+
+* 如果一个对象没有实现上下文，我们就不能把它用于with语句。这个时候，可以用closing()来把该对象变为上下文对象。例如，用with语句使用urlopen()：
 
