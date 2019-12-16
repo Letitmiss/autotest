@@ -70,8 +70,3 @@ with tag("123"):
     print('hello')
     print('python')
 ```
-
-## @closing
-
-* 如果一个对象没有实现上下文，我们就不能把它用于with语句。这个时候，可以用closing()来把该对象变为上下文对象。例如，用with语句使用urlopen()：
-
