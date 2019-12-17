@@ -16,3 +16,4 @@ Matplotlib
 
 
 ## Numpy基础
+https://quotes.money.163.com/trade/lsjysj_zhishu_000001.html?year=2019&season=4
