@@ -10,6 +10,7 @@ Matplotlib
 
 ## anaconda
 
+* https://www.anaconda.com/distribution/#download-section
 
 ## pycharm
 
