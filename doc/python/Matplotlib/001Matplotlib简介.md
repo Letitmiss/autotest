@@ -14,3 +14,5 @@ Matplotlib
 
 ## pycharm
 
+
+## Numpy基础
